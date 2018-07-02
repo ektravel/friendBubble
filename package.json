@@ -9,7 +9,6 @@
     "install": "cd client && yarn install",
     "build": "cd client && yarn run build",
     "heroku-postbuild": "yarn run build"
-
   },
   "author": "ektravel",
   "license": "ISC",
