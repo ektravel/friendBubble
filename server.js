@@ -11,7 +11,7 @@ const Blog = require("./models/blog");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/my-blog");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/my-blog");
 
 app.use(express.static("client/build"));
 
