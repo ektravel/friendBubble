@@ -5,6 +5,8 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
+const blogPosts = [];
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -19,9 +21,10 @@ app.get("/api/test", (req, res) => {
     res.json(true);
 });
 
-app.post("/api/test", (req, res) => {
+app.post("/api/blog", (req, res) => {
     console.log(req.body);
-    res.json(req.body);
+    blogPosts.push(req.body);
+    res.json(blogPosts);
 });
 
 app.use(function(req, res){
