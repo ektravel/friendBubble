@@ -10,7 +10,6 @@ class App extends Component {
     body:""
   }
 
-
 handleInputChange = event => {
  const {name, value} = event.target;
  this.setState({[name]: value});
