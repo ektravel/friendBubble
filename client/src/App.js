@@ -1,49 +1,28 @@
-import React, { Component } from 'react';
-import axios from "axios";
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Nav from "./components/Nav";
+// import Footer from "./components/Footer";
 
-import ViewBlog from "./pages/ViewBlog";
 
-class App extends Component {
-
-  state = {
-    title:"",
-    body:""
-  }
-
-handleInputChange = event => {
- const {name, value} = event.target;
- this.setState({[name]: value});
-}
-
-saveBlog = event =>{
-  event.preventDefault();
-  console.log(this.state.title);
-  console.log(this.state.body);
-}
-
-postBlog = event =>{
-  event.preventDefault();
-  const {title, body} = this.state;
-  axios.post("/api/blog", {title, body}).then(res => {
-   console.log(res);
-   this.setState({title: "", body: ""});
-  }) 
-}
-
-  render() {
-    return (
-       <div>
-         <form>
-           <input name="title" onChange={this.handleInputChange} value={this.state.title}/>
-           <input name="body" onChange={this.handleInputChange} value={this.state.body}/>
-           <button onClick={this.postBlog}>Submit</button>
-         </form>
-         <ViewBlog/>
-       </div>
-    );
-  }
-}
-
+//This component will be rendered by the router. 
+const App = () => (
+    <Router>
+      <div>
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/contact" component={Contact} />
+        </Switch>
+   
+      </div>
+    </Router>
+  );
+  
 export default App;
