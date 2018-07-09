@@ -5,8 +5,10 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
+import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-// import Footer from "./components/Footer";
+
 
 
 //This component will be rendered by the router. 
@@ -19,8 +21,9 @@ const App = () => (
           <Route exact path="/about" component={About} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/contact" component={Contact} />
+          <Route component={NotFound} />
         </Switch>
-   
+        <Footer />
       </div>
     </Router>
   );
