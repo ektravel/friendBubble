@@ -5,7 +5,11 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Groups from "./pages/Groups";
+import Plans from "./pages/Plans";
+import AddNew from "./pages/AddNew";
 import NotFound from "./pages/NotFound";
+import UserHomePage from "./pages/UserHomePage";
 import Nav from "./components/Nav";
 
 
@@ -20,6 +24,10 @@ const App = () => (
           <Route exact path="/about" component={About} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/groups" component={Groups} />
+          <Route exact path="/plans" component={Plans} />
+          <Route exact path="/addnew" component={AddNew}/>
+          <Route exact path="/userhomepage" component={UserHomePage}/>
           <Route component={NotFound} />
         </Switch>
       </div>
