@@ -1,8 +1,9 @@
 import React from "react";
+import "./Footer.css";
 
 const Footer = () => (
-    <div>
-        <h2>Page not found.</h2>
+    <div className= "footer">
+        <h2>Friend Bubble</h2>
     </div>
 );
 

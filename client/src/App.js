@@ -6,7 +6,6 @@ import Login from "./pages/Login";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 
 
@@ -23,7 +22,6 @@ const App = () => (
           <Route exact path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
-        <Footer />
       </div>
     </Router>
   );
