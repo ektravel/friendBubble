@@ -10,6 +10,7 @@ import Plans from "./pages/Plans";
 import AddNew from "./pages/AddNew";
 import NotFound from "./pages/NotFound";
 import UserHomePage from "./pages/UserHomePage";
+import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
 
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route exact path="/plans" component={Plans} />
           <Route exact path="/addnew" component={AddNew}/>
           <Route exact path="/userhomepage" component={UserHomePage}/>
+          <Route exact path="/signup" component={Signup}/>
           <Route component={NotFound} />
         </Switch>
       </div>

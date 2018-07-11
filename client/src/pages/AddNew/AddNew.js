@@ -26,15 +26,15 @@ class AddNew extends Component {
             <div className="card-body">
               <form>
                 <div className="form-group">
-                  <label for="firstName">First Name</label>
+                  <label htmlFor="firstName">First Name</label>
                   <input name="firstName" className="form-control" onChange={this.handleInputChange} value={this.state.firstName} />
                 </div>
                 <div className="form-group">
-                  <label for="lastName">Last Name</label>
+                  <label htmlFor="lastName">Last Name</label>
                   <input name="lastName" className="form-control" onChange={this.handleInputChange} value={this.state.lastName} />
                 </div>
                 <div className="form-group">
-                  <label for="relationship">Last Name</label>
+                  <label htmlFor="relationship">Last Name</label>
                   <select className="form-control" onChange={this.handleInputChange} value={this.state.relationship}>
                     <option>Family</option>
                     <option>Friend</option>
@@ -42,15 +42,15 @@ class AddNew extends Component {
                   </select>
                 </div>
                 <div className="form-group">
-                  <label for="contact">Contact Information</label>
+                  <label htmlFor="contact">Contact Information</label>
                   <textarea className="form-control" onChange={this.handleInputChange} value={this.state.contact} rows="3"></textarea>
                 </div>
                 <div className="form-group">
-                  <label for="notes">Notes</label>
+                  <label htmlFor="notes">Notes</label>
                   <textarea className="form-control" onChange={this.handleInputChange} value={this.state.notes} rows="3"></textarea>
                 </div>
                 <div className="form-group">
-                  <label for="contactFrequency">Contact Frequency</label>
+                  <label htmlFor="contactFrequency">Contact Frequency</label>
                   <select className="form-control" onChange={this.handleInputChange} value={this.state.contactFrequency}>
                     <option>Weekly</option>
                     <option>Monthly</option>

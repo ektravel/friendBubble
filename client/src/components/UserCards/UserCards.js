@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./UserCards.css";
 
 const UserCards = () => (
-<div className="row">
-  <div className="col-sm-4">
+<div className="row mx-auto justify-content-center">
+  <div className="col-sm-4" id="leftCard">
     <div className="card text-center">
       <div className="card-body">
         <h5 className="card-title">My Groups</h5>
@@ -21,7 +22,7 @@ const UserCards = () => (
       </div>
     </div>
   </div>
-  <div className="col-sm-4">
+  <div className="col-sm-4" id="rightCard">
     <div className="card text-center">
       <div className="card-body">
       <h5 className="card-title">Add New</h5>
