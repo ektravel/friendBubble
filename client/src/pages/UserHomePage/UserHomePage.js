@@ -1,65 +1,103 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ViewBlog from "../../components/ViewBlog";
+import ViewContact from "../../components/ViewContact";
 import UserCards from "../../components/UserCards";
 
 class UserHomePage extends Component {
-
   state = {
-    title: "",
-    body: "",
-    blogs: null
-  }
+    name: "",
+    email: "",
+    relationship: "",
+    occupation: "",
+    notes: "",
+    contacts: null
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-  }
+  };
 
-  saveBlog = event => {
+  saveContact = event => {
     event.preventDefault();
-    console.log(this.state.title);
-    console.log(this.state.body);
-  }
+  };
 
-  postBlog = event => {
+  postContact = event => {
     event.preventDefault();
-    const { title, body } = this.state;
-    axios.post("/api/blog", { title, body }).then(res => {
+    const { name, email, relationship, occupation, notes } = this.state;
+    axios.post("/api/contact", { name, email, relationship, occupation, notes }).then(res => {
       console.log(res);
-      this.setState({ title: "", body: "" }, () => {
-        console.log("Postblog finish");
-        this.refreshBlogs()
+      this.setState({ name: "", email: "", relationship: "", occupation: "", notes: "" }, () => {
+        console.log("Contact has been added and records have been cleared");
+        this.refreshContacts()
       });
-    }
-    )
-  }
+    })
+  };
 
-  refreshBlogs() {
+  refreshContacts() {
     console.log("This should go!");
-    axios.get("/api/blog").then((res) => {
+    axios.get("/api/contact").then((res) => {
       console.log(res);
-      this.setState({ blogs: res.data })
+      this.setState({ contacts: res.data })
     });
-  }
+  };
 
   componentDidMount() {
-    this.refreshBlogs();
-  }
+    this.refreshContacts();
+  };
 
   render() {
     return (
       <div>
         <UserCards />
-        <form>
-          <input name="title" onChange={this.handleInputChange} value={this.state.title} />
-          <input name="body" onChange={this.handleInputChange} value={this.state.body} />
-          <button onClick={this.postBlog}>Submit</button>
-        </form>
-        {this.state.blogs ? <ViewBlog blogs={this.state.blogs} /> : null}
+          <div className="row mx-auto justify-content-center" id="cardContainer">
+            <div className="col-md-6">
+              <div className="card">
+                <h4 className="card-header text-center">Add a New Contact</h4>
+                <div className="card-body">
+                <form>
+                  <div className="form-group">
+                    <label htmlFor="name">Name</label>
+                    <input name="name" className="form-control" type="text" onChange={this.handleInputChange} value={this.state.name} />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input name="email" className="form-control" type="email" onChange={this.handleInputChange} value={this.state.email} />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="relationship">Relationship</label>
+                    <select className="form-control" name="relationship" onChange={this.handleInputChange} value={this.state.relationship} >
+                      <option>Please choose one</option>
+                      <option>Family</option>
+                      <option>Friend</option>
+                      <option>Acquaintance</option>
+                    </select>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="occupation">Occupation</label>
+                    <input name="occupation" className="form-control" onChange={this.handleInputChange} value={this.state.occupation} />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="notes">Notes</label>
+                    <textarea name="notes" className="form-control" rows="3" onChange={this.handleInputChange} value={this.state.notes} />
+                  </div>
+
+                  <button type="submit" className="btn btn-primary" onClick={this.postContact}>Submit</button>
+                </form>
+                {this.state.contacts ? <ViewContact contacts={this.state.contacts} /> : null}
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     );
   }
 }
-
+          
 export default UserHomePage;
+          
+      

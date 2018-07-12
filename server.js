@@ -7,33 +7,34 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-const Blog = require("./models/blog");
+const Contact = require("./models/contact");
 
+//Define middleware
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-//Add rotues
-// app.use(routes);
-
 //Connect to Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/my-blog");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/friendBubble");
 
+// Serve up static assets 
+if (process.env.NODE_ENV === "production") {
 app.use(express.static("client/build"));
+}
 
-app.get("/", (req, res) => {
-    res.send("hi");
-});
+// app.get("/", (req, res) => {
+//     res.send("hi");
+// });
 
-app.get("/api/blog", (req, res) => {
+app.get("/api/contact", (req, res) => {
     console.log("this should be hit");
-    Blog.find({}).then(results => res.json(results));
+    Contact.find({}).then(results => res.json(results));
 });
 
-app.post("/api/blog", (req, res) => {
+app.post("/api/contact", (req, res) => {
     console.log(req.body);
     
-    Blog.create(req.body).then(dbBlog => {
-        res.json(dbBlog);
+    Contact.create(req.body).then(dbContact => {
+        res.json(dbContact);
     });
 });
 
@@ -41,6 +42,7 @@ app.use(function(req, res){
     res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
+//Start the API server
 app.listen(PORT, function(){
     console.log(`API Server now listening on port ${PORT}`);
 });
