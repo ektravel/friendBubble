@@ -1,10 +1,11 @@
 import React from "react";
+import "./Contact.css";
 
 const Contact = () => (
     <div className="row mx-auto justify-content-center" id="cardContainer">
         <div className="col-md-6">
             <div className="card">
-                <h4 className="card-header text-center">Contact Us</h4>
+                <h4 className="card-header bg-transparent text-center">Don't Be a Stranger | Say Hello</h4>
                 <div className="card-body">
                     <form method="POST" action="https://formspree.io/friend.bubble.connect@gmail.com">
                         <div className="form-group">
@@ -19,7 +20,7 @@ const Contact = () => (
                             <label htmlFor="notes">Message</label>
                             <textarea name="message" className="form-control" rows="3" type="text" placeholder="Your message"></textarea>
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn">Submit</button>
                     </form>
                 </div>
             </div>

@@ -1,3 +1,37 @@
 nav {
     margin-bottom: 25px;
+    background-color: #ffffff;
+    padding-right: 30px;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+.navbar {
+    min-height: 70px;
+}
+  
+.navbar-brand {
+    padding-left: 30px;
+    height: 70px;
+    line-height: 70px;
+}
+
+#navbarNav {
+padding-right: 30px;
+}
+
+#bubble {
+    transition: transform 300ms;
+}
+  
+#bubble:hover {
+    transform: scale(1.3);
+}
+
+.nav-link:active, .nav-link:hover { 
+    color:#00bcf2;
+}
+
+.nav-link:visited {
+    text-decoration: none;
 }

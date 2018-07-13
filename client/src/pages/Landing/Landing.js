@@ -1,9 +1,18 @@
 import React from "react";
+import "./Landing.css";
 
 const Landing = () => (
-    <div>
-      Glossier schlitz pour-over listicle meh knausgaard keytar try-hard brunch ennui. Brooklyn pabst lumbersexual put a bird on it, aesthetic biodiesel ugh whatever authentic. Fashion axe banh mi chambray, actually echo park vinyl cliche distillery next level shaman sriracha letterpress. Beard try-hard vaporware readymade vinyl. Asymmetrical skateboard brunch kogi selfies. Actually readymade next level air plant iPhone.  
+  <div className = "container">
+    <div classname="row justify-content-center">
+      <div className="col lg-10">
+        <h1>Welcome to Friend Bubble</h1>
+        <p>
+        Friend Bubble is a simple platform designed to help you stay connected with your family and friends. It is really easy to use. Just add the people you want to keep in touch with, choose how often you want to connect with them, and start making plans. Friend Bubble will send you a weekly notification reminding you of your goals and plans so that you never miss an opportunity to connect with others. 
+        </p>
+        <p className="text-center" id="imgBox"><img className="img-fluid" id="aboutImg" alt="Responsive image" src="./images/greyParty.png"/></p>
+      </div>
     </div>
+  </div>
 );
 
 export default Landing;

@@ -20,7 +20,7 @@ class Login extends Component {
     <div className="row mx-auto justify-content-center" id="cardContainer">
       <div className="col-md-6">
         <div className="card">
-          <h4 className="card-header text-center">Login</h4>
+          <h4 className="card-header text-center">LOGIN</h4>
           <div className="card-body">
             <form>
               <div className="form-group">

@@ -1,0 +1,24 @@
+h1{
+    font-family: "Playfair Display", serif;
+    font-size: 54px;
+    letter-spacing: 0;
+    line-height: 1.1em;
+    font-weight: 900;
+    text-align: center;
+}
+.col{
+    margin-top: 40px;
+    font-weight: 300;
+}
+#imgBox{
+    margin-top: 80px;
+    margin-bottom: 0px;
+}
+#aboutImg {
+    transition: transform 300ms;
+}
+  
+#aboutImg:hover {
+    transform: scale(1.3);
+}
+
