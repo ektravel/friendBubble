@@ -2,12 +2,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
-// const routes = require("./routes");
 const app = express();
+
+const APIroutes = require("./routes/API.js");
 
 const PORT = process.env.PORT || 3001;
 
-const Contact = require("./models/contact");
+// const Contact = require("./models/contact");
 
 //Define middleware
 app.use(bodyParser.urlencoded({extended: true}));
@@ -21,26 +22,28 @@ if (process.env.NODE_ENV === "production") {
 app.use(express.static("client/build"));
 }
 
+app.use("/api",APIroutes);
+
 // app.get("/", (req, res) => {
 //     res.send("hi");
 // });
 
-app.get("/api/contact", (req, res) => {
-    console.log("this should be hit");
-    Contact.find({}).then(results => res.json(results));
-});
+// app.get("/api/contact", (req, res) => {
+//     console.log("this should be hit");
+//     Contact.find({}).then(results => res.json(results));
+// });
 
-app.post("/api/contact", (req, res) => {
-    console.log(req.body);
+// app.post("/api/contact", (req, res) => {
+//     console.log(req.body);
     
-    Contact.create(req.body).then(dbContact => {
-        res.json(dbContact);
-    });
-});
+//     Contact.create(req.body).then(dbContact => {
+//         res.json(dbContact);
+//     });
+// });
 
-app.use(function(req, res){
-    res.sendFile(path.join(__dirname, "client/build/index.html"));
-});
+// app.use("*", function(req, res){
+//     res.sendFile(path.join(__dirname, "client/build/index.html"));
+// });
 
 //Start the API server
 app.listen(PORT, function(){
