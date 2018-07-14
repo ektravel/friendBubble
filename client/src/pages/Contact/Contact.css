@@ -1,4 +1,4 @@
-#cardContainer{
+#contactCardContainer{
     font-family: "Playfair Display", serif;
     font-size: 18px;
     letter-spacing: 0;
@@ -6,7 +6,7 @@
     font-weight: 900;
     border-color: #b4efff;
 }
-h4{
+#contactHeader{
     font-size: 24px;
     font-weight: bold;
 }

@@ -1,7 +1,7 @@
-/* #lefCard{
-    margin-left: 15px;
-};
-
-#rightCard{
-    margin-right: 15px;
-}; */
+.userCard {
+    transition: transform 300ms;
+}
+  
+.userCard:hover {
+    transform: scale(1.3);
+}

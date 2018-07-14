@@ -17,10 +17,10 @@ class Login extends Component {
 
   render() {
     return (
-    <div className="row mx-auto justify-content-center" id="cardContainer">
+    <div className="row mx-auto justify-content-center" id="loginCardContainer">
       <div className="col-md-6">
         <div className="card">
-          <h4 className="card-header text-center">LOGIN</h4>
+          <h4 className="card-header bg-transparent text-center" id="loginHeader">Login to Your Account</h4>
           <div className="card-body">
             <form>
               <div className="form-group">
@@ -30,11 +30,10 @@ class Login extends Component {
               <div className="form-group">
                 <label htmlFor="email">Your Email</label>
                 <input name="email" className="form-control" onChange={this.handleInputChange} value={this.state.email} />
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit" className="btn">Submit</button>
             </form>
-            <p>Don't have an account? Click here to <Link to="/signup">sign up</Link>.</p>
+            <p id="loginP">Don't have an account? Click here to <Link to="/signup">sign up</Link>.</p>
           </div>
         </div>
       </div>
