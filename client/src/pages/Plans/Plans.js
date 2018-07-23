@@ -23,8 +23,9 @@ class Plans extends Component {
     event.preventDefault();
   };
 
-  postPlan = event => {
+  postPlans = event => {
     event.preventDefault();
+    //alert('test');
     const { title, guests, activity, relationship, date, notes} = this.state;
     axios.post("/api/plans", { title, guests, activity, relationship, date, notes }).then(res => {
       console.log(res);
