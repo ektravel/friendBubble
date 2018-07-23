@@ -10,11 +10,16 @@ const ContactSchema = new Schema({
         type: String,
         match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     },
+    frequency: {
+        type: Number,
+        required: true,
+        min: 1,
+        max: 10
+    },
     relationship: {
         type: String, 
         required: true 
     },
-    occupation:String,
     notes: String  
 });
 

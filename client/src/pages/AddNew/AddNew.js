@@ -7,8 +7,8 @@ class AddNew extends Component {
   state = {
     name: "",
     email: "",
+    frequency:"",
     relationship: "",
-    occupation: "",
     notes: "",
     contacts: null
   };
@@ -24,10 +24,10 @@ class AddNew extends Component {
 
   postContact = event => {
     event.preventDefault();
-    const { name, email, relationship, occupation, notes } = this.state;
-    axios.post("/api/contact", { name, email, relationship, occupation, notes }).then(res => {
+    const { name, email, frequency, relationship, notes } = this.state;
+    axios.post("/api/contact", { name, email,frequency, relationship, notes }).then(res => {
       console.log(res);
-      this.setState({ name: "", email: "", relationship: "", occupation: "", notes: "" }, () => {
+      this.setState({ name: "", email: "",frequency: "", relationship: "", notes: "" }, () => {
         console.log("Contact has been added and records have been cleared");
         this.refreshContacts()
       });
@@ -65,6 +65,11 @@ class AddNew extends Component {
                   </div>
 
                   <div className="form-group">
+                    <label htmlFor="frequency">How many times per month do you want to connect?</label>
+                    <input name="frequency" className="form-control" type="text" onChange={this.handleInputChange} value={this.state.frequency} />
+                  </div>
+
+                  <div className="form-group">
                     <label htmlFor="relationship">Relationship</label>
                     <select className="form-control" name="relationship" onChange={this.handleInputChange} value={this.state.relationship} >
                       <option>Please choose one</option>
@@ -75,16 +80,11 @@ class AddNew extends Component {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="occupation">Occupation</label>
-                    <input name="occupation" className="form-control" onChange={this.handleInputChange} value={this.state.occupation} />
-                  </div>
-
-                  <div className="form-group">
                     <label htmlFor="notes">Notes</label>
                     <textarea name="notes" className="form-control" rows="3" onChange={this.handleInputChange} value={this.state.notes} />
                   </div>
 
-                  <button type="submit" className="btn btn-primary" onClick={this.postContact}>Submit</button>
+                  <button type="submit" className="btn btn-primary" id="addNewBtn" onClick={this.postContact}>Submit</button>
                 </form>
                 {this.state.contacts ? <ViewContact contacts={this.state.contacts} /> : null}
                 </div>

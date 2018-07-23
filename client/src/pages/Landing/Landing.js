@@ -1,18 +1,26 @@
 import React from "react";
 import "./Landing.css";
+import ViewContact from "../../components/ViewContact";
+
+// to do:
+// change the landing page to be a component 
+// add propt to display contacts on the page
+// add props to display plans on the page
+
+
+
 
 const Landing = () => (
   <div className = "container">
-    <div classname="row justify-content-center">
-      <div className="col lg-10">
-        <h1>Welcome to Friend Bubble</h1>
-        <p>
-        Friend Bubble is a simple platform designed to help you stay connected with your family and friends. It is really easy to use. Just add the people you want to keep in touch with, choose how often you want to connect with them, and start making plans. Friend Bubble will send you a weekly notification reminding you of your goals and plans so that you never miss an opportunity to connect with others. 
-        </p>
-        {/* <p className="text-center" id="imgBox"><img className="img-fluid" id="aboutImg" alt="Responsive image" src="./images/greyParty.png"/> */}
-        <br/>
-       <p className= "text-center text-muted" id="landingP"> Make time for family and friends. </p>
-      </div>
+    <div className="row">
+      <div className="col lg-6">
+        <h2>My Contacts</h2>
+        {/* <p><ViewContact/></p> */}
+        </div>
+      <div className="col lg-6">
+      <h2>My Upcoming Events</h2>
+      <p>This is where my upcoming events will be displayed.</p>
+      </div>       
     </div>
   </div>
 );

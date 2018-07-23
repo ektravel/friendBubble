@@ -5,14 +5,17 @@ const About = () => (
     <div className = "container">
     <div classname="row justify-content-center">
       <div className="col lg-10">
-        <h1>Meet the Team</h1>
+        <h1>Welcome to Friend Bubble</h1>
         <p>
-        Actually there is no team, it's just me. I built Friend Bubble as my final project for the Coding Bootcamp at UT. I chose to built it in React.js as a single-page application because, let's face it, React.js is really cool and fun to work with. As I gain more experience with React.js, I plan to add more features and imporve existing functionality of the app. Thanks for visiting and I hope you find this site useful. 
+        Friend Bubble is a simple platform designed to help you stay connected with your family and friends. It is really easy to use. Just add the people you want to keep in touch with, choose how often you want to connect with them, and start making plans. Friend Bubble will send you a weekly notification reminding you of your goals and plans so that you never miss an opportunity to connect with others.
         </p>
-        <p className="text-center" id="imgBox"><img className="img-fluid" id="aboutImg" alt="Responsive image" src="./images/greyParty.png"/></p>
+        <br/>
+       <p className= "text-center text-muted" id="aboutP"> Make time for family and friends. </p>
       </div>
     </div>
   </div>
 );
 
 export default About;
+
+
