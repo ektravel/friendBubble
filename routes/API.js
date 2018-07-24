@@ -14,6 +14,7 @@ app.post("/contact", (req, res) => {
     });
 });
 
+
 app.delete("/contact/:id", (req,res) => {
     db.Contact
     .findById({ _id: req.params.id})
@@ -33,6 +34,12 @@ app.post("/plans", (req, res) => {
         res.json(dbPlans);
     });
 });
+
+app.put("/plans/:id", (req,res)=> {
+    db.Plans
+    .findOneAndUpdate({ _id: req.params.id }, req.body)
+    .then(dbPlans => res.json(dbPlans));
+})
 
 app.delete("/plans/:id", (req,res) => {
     db.Plans

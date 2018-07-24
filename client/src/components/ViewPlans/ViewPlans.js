@@ -25,6 +25,12 @@ class ViewPlans extends Component {
     });
   };
 
+  // editPlan = id => {
+  //   axios.put("/api/plans/" + id)
+  //   .then(res => this.refreshPlans())
+  //   .catch(err => console.log(err));
+  // };
+
   deletePlan = id => {
     console.log("delete button is working");
     axios.delete("/api/plans/" + id)
@@ -48,7 +54,8 @@ class ViewPlans extends Component {
             <p>Activity: {post.activity}</p>
             <p>Date: {post.date}</p>
             <p>Notes: {post.notes}</p>
-            <button className="btn btn-sm" id="viewPlansBtn" onClick={() => this.deletePlan(post._id)}>Delete</button>
+            <button className="btn btn-sm" id="deletePlansBtn" onClick={() => this.deletePlan(post._id)}>Delete</button>
+            {/* <button className="btn btn-sm" id="editPlansBtn" onClick={() => this.editPlan(post._id)}>Edit</button> */}
             </li>
           </ul>
           ))
