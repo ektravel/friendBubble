@@ -49,7 +49,7 @@ class ViewPlans extends Component {
 
   deletePlan = id => {
     console.log("delete button is working");
-    axios.delete("/api/plans?id=" + id)
+    axios.delete("/api/plans/" + id)
       .then(res => this.refreshPlans())
       .catch(err => console.log(err));
   };

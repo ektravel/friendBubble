@@ -26,6 +26,15 @@ app.post("/plans", (req, res) => {
     });
 });
 
+app.delete("/plans/:id", (req,res) => {
+    console.log("the button is working 123");
+    console.log(req.params.id);
+    
+    db.Plans
+    .findById({ _id: req.params.id})
+    .then(dbPlans => dbPlans.remove())
+    .then(dbPlans=> res.json(dbPlans));
+});
 
 
 module.exports = app;
