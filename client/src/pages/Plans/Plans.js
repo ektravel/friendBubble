@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ViewPlans from "../../components/ViewPlans";
 
 class Plans extends Component {
 
   state = {
     title: "",
-    guests: "",
+    attendees: "",
     activity: "",
     relationship: "",
     date:"",
@@ -25,10 +24,10 @@ class Plans extends Component {
 
   postPlans = event => {
     event.preventDefault();
-    const { title, guests, activity, relationship, date, notes} = this.state;
-    axios.post("/api/plans", { title, guests, activity, relationship, date, notes }).then(res => {
+    const { title, attendees, activity, relationship, date, notes} = this.state;
+    axios.post("/api/plans", { title, attendees, activity, relationship, date, notes }).then(res => {
       console.log(res);
-      this.setState({ title: "", guests: "", activity: "", relationship:"", date:"", notes:"" }, () => {
+      this.setState({ title: "", attendees: "", activity: "", relationship:"", date:"", notes:"" }, () => {
         console.log("New activity has been added");
         this.refreshPlans()
       });
@@ -62,8 +61,8 @@ class Plans extends Component {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="guests">Guests</label>
-                    <input name="guests" className="form-control" type="text" onChange={this.handleInputChange} value={this.state.guests} />
+                    <label htmlFor="attendees">Attendees</label>
+                    <input name="attendees" className="form-control" type="text" onChange={this.handleInputChange} value={this.state.attendees} />
                   </div>
 
                   <div className="form-group">
@@ -93,7 +92,7 @@ class Plans extends Component {
 
                   <button type="submit" className="btn btn-primary" onClick={this.postPlans}>Submit</button>
                 </form>
-                {this.state.plans ? <ViewPlans plans={this.state.plans} /> : null}
+                {/* {this.state.plans ? <ViewPlans plans={this.state.plans} /> : null} */}
                 </div>
               </div>
             </div>

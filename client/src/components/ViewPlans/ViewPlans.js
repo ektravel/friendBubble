@@ -6,7 +6,7 @@ const ViewPlans = (props) => (
         <ul className="list-group" key={post._id}>
            <li className="list-group-item">
             <h3>{post.title}</h3>
-            <p>Guests: {post.guests}</p>
+            <p>Attendees: {post.attendees}</p>
             <p>Activity: {post.activity}</p>
             <p>Relationship: {post.relationship}</p>
             <p>Date: {post.date}</p>

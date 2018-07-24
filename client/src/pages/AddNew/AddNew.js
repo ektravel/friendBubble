@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ViewContact from "../../components/ViewContact";
 import "./AddNew.css";
 
 class AddNew extends Component {
@@ -28,7 +27,6 @@ class AddNew extends Component {
     axios.post("/api/contact", { name, email,frequency, relationship, notes }).then(res => {
       console.log(res);
       this.setState({ name: "", email: "",frequency: "", relationship: "", notes: "" }, () => {
-        console.log("Contact has been added and records have been cleared");
         this.refreshContacts()
       });
     })
@@ -86,7 +84,7 @@ class AddNew extends Component {
 
                   <button type="submit" className="btn btn-primary" id="addNewBtn" onClick={this.postContact}>Submit</button>
                 </form>
-                {this.state.contacts ? <ViewContact contacts={this.state.contacts} /> : null}
+                {/* {this.state.contacts ? <ViewContact contacts={this.state.contacts} /> : null} */}
                 </div>
               </div>
             </div>
