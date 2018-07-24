@@ -14,6 +14,14 @@ app.post("/contact", (req, res) => {
     });
 });
 
+app.delete("/contact/:id", (req,res) => {
+    db.Contact
+    .findById({ _id: req.params.id})
+    .then(dbContact => dbContact.remove())
+    .then(dbContact=> res.json(dbContact));
+});
+
+
 app.get("/plans", (req, res) => {
     console.log("this should be hit");
     db.Plans.find({}).then(results => res.json(results));
@@ -27,9 +35,6 @@ app.post("/plans", (req, res) => {
 });
 
 app.delete("/plans/:id", (req,res) => {
-    console.log("the button is working 123");
-    console.log(req.params.id);
-    
     db.Plans
     .findById({ _id: req.params.id})
     .then(dbPlans => dbPlans.remove())
