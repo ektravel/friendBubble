@@ -9,7 +9,6 @@ app.get("/contact", (req, res) => {
 
 app.post("/contact", (req, res) => {
     console.log(req.body);
-    
     db.Contact.create(req.body).then(dbContact => {
         res.json(dbContact);
     });
@@ -22,9 +21,11 @@ app.get("/plans", (req, res) => {
 
 app.post("/plans", (req, res) => {
     console.log(req.body);
-    
     db.Plans.create(req.body).then(dbPlans => {
         res.json(dbPlans);
     });
 });
+
+
+
 module.exports = app;

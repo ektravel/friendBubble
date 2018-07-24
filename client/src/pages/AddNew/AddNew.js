@@ -46,10 +46,10 @@ class AddNew extends Component {
 
   render() {
     return (
-          <div className="row mx-auto justify-content-center" id="cardContainer">
+          <div className="row mx-auto justify-content-center" id="addNewCardContainer">
             <div className="col-md-6">
               <div className="card">
-                <h4 className="card-header text-center">Add a New Contact</h4>
+                <h4 className="card-header bg-transparent text-center" id="addNewHeader">Add a New Contact</h4>
                 <div className="card-body">
                 <form>
                   <div className="form-group">
@@ -82,9 +82,8 @@ class AddNew extends Component {
                     <textarea name="notes" className="form-control" rows="3" onChange={this.handleInputChange} value={this.state.notes} />
                   </div>
 
-                  <button type="submit" className="btn btn-primary" id="addNewBtn" onClick={this.postContact}>Submit</button>
+                  <button type="submit" className="btn" id="addNewBtn" onClick={this.postContact}>Submit</button>
                 </form>
-                {/* {this.state.contacts ? <ViewContact contacts={this.state.contacts} /> : null} */}
                 </div>
               </div>
             </div>

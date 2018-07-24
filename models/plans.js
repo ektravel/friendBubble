@@ -5,10 +5,6 @@ const PlansSchema = new Schema({
     title: String,
     guests: Array,
     activity: String,
-    relationship: {
-        type: String, 
-        required: true 
-    },
     date: Date,
     notes: String  
 });

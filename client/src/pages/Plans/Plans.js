@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./Plans.css";
 
 class Plans extends Component {
 
@@ -7,7 +8,6 @@ class Plans extends Component {
     title: "",
     attendees: "",
     activity: "",
-    relationship: "",
     date:"",
     notes: "",
     plans: null
@@ -24,23 +24,28 @@ class Plans extends Component {
 
   postPlans = event => {
     event.preventDefault();
-    const { title, attendees, activity, relationship, date, notes} = this.state;
-    axios.post("/api/plans", { title, attendees, activity, relationship, date, notes }).then(res => {
+    const { title, attendees, activity, date, notes} = this.state;
+    axios.post("/api/plans", { title, attendees, activity, date, notes }).then(res => {
       console.log(res);
-      this.setState({ title: "", attendees: "", activity: "", relationship:"", date:"", notes:"" }, () => {
-        console.log("New activity has been added");
+      this.setState({ title: "", attendees: "", activity: "", date:"", notes:"" }, () => {
         this.refreshPlans()
       });
     })
   };
 
   refreshPlans() {
-    console.log("This should go!");
     axios.get("/api/plans").then((res) => {
       console.log(res);
       this.setState({ plans: res.data })
     });
   };
+
+  // deletePlan = id => {
+  //   console.log("delete button is working");
+  //   axios.delete("/api/plans/" + id)
+  //     .then(res => this.refreshPlans())
+  //     .catch(err => console.log(err));
+  // };
 
   componentDidMount() {
     this.refreshPlans();
@@ -49,10 +54,10 @@ class Plans extends Component {
   render() {
     return (
 
-          <div className="row mx-auto justify-content-center" id="cardContainer">
+          <div className="row mx-auto justify-content-center" id="plansCardContainer">
             <div className="col-md-6">
               <div className="card">
-                <h4 className="card-header text-center">Plan Something</h4>
+                <h4 className="card-header bg-transparent text-center" id="plansHeader">Plan Something</h4>
                 <div className="card-body">
                 <form>
                   <div className="form-group">
@@ -71,16 +76,6 @@ class Plans extends Component {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="relationship">Relationship</label>
-                    <select className="form-control" name="relationship" onChange={this.handleInputChange} value={this.state.relationship} >
-                      <option>Please choose one</option>
-                      <option>Family</option>
-                      <option>Friend</option>
-                      <option>Acquaintance</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
                     <label htmlFor="date">Date</label>
                     <input type="date" name="date" className="form-control" onChange={this.handleInputChange} value={this.state.date} />
                   </div>
@@ -90,9 +85,8 @@ class Plans extends Component {
                     <textarea name="notes" className="form-control" rows="3" onChange={this.handleInputChange} value={this.state.notes} />
                   </div>
 
-                  <button type="submit" className="btn btn-primary" onClick={this.postPlans}>Submit</button>
+                  <button type="submit" className="btn" id="plansBtn" onClick={this.postPlans}>Submit</button>
                 </form>
-                {/* {this.state.plans ? <ViewPlans plans={this.state.plans} /> : null} */}
                 </div>
               </div>
             </div>

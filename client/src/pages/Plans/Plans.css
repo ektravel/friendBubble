@@ -1,27 +1,21 @@
-#landingContainer{
+#plansCardContainer{
+    font-family: "Playfair Display", serif;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 1.1em;
     font-weight: 900;
+    border-color: #b4efff;
+    margin-bottom: 30px;
 }
-.col{
-    margin-top: 40px;
-    font-weight: 300;
+#plansHeader{
+    font-size: 24px;
+    font-weight: bold;
 }
-#imgBox{
-    margin-top: 80px;
-    margin-bottom: 0px;
+#plansBtn {
+    background-color: #04cbff;
+    color: white;
 }
-#aboutImg {
-    transition: transform 300ms;
-}
-  
-#aboutImg:hover {
-    transform: scale(1.4);
-}
-
-#landingP {
-    font-family: "Playfair Display", serif;
+h4 {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     /* border-right: .10em solid #b4efff; The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
@@ -36,10 +30,4 @@
   @keyframes typing {
     from { width: 0 }
     to { width: 100% }
-  }
-  .landingLink{
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-   
   }

@@ -34,6 +34,13 @@ class Landing extends Component {
     });
   };
 
+  deletePlan = id => {
+    console.log("delete button is working");
+    axios.delete("/api/plans/" + id)
+      .then(res => this.refreshPlans())
+      .catch(err => console.log(err));
+  };
+
   componentDidMount() {
     this.refreshContacts(); 
     this.refreshPlans();
@@ -42,17 +49,17 @@ class Landing extends Component {
   render() {
     return (
 
-      <div className = "container">
+      <div className = "container" id="landingContainer">
       <div className="row">
         <div className="col lg-6">
           <h2>My Contacts</h2>
           {this.state.contacts ? <ViewContact contacts={this.state.contacts} /> : null}
-          <p><Link to="/addnew">Add New Contact</Link></p>
+          <p className="landingLink"><Link to="/addnew">Add New Contact</Link></p>
           </div>
         <div className="col lg-6">
-        <h2>My Upcoming Events</h2>
-        {this.state.plans ? <ViewPlans plans={this.state.plans} /> : null}
-        <p><Link to="/plans">Add New Event</Link></p>
+          <h2>My Upcoming Events</h2>
+          {this.state.plans ? <ViewPlans plans={this.state.plans}/> : null}
+          <p className="landingLink"><Link to="/plans">Add New Event</Link></p>
         </div>       
       </div>
     </div>

@@ -3,7 +3,7 @@ import "./About.css";
 
 const About = () => (
     <div className = "container">
-    <div classname="row justify-content-center">
+    <div className="row justify-content-center">
       <div className="col lg-10">
         <h1>Welcome to Friend Bubble</h1>
         <p>
