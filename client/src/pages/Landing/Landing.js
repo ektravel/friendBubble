@@ -45,12 +45,12 @@ class Landing extends Component {
       <div className = "container" id="landingContainer">
       <div className="row">
         <div className="col lg-6">
-          <h2>My Contacts</h2>
+          <h2 className="landingHeader">Contacts</h2>
           {this.state.contacts ? <ViewContact contacts={this.state.contacts} /> : null}
           <p className="landingLink"><Link to="/addnew">Add New Contact</Link></p>
           </div>
         <div className="col lg-6">
-          <h2>My Upcoming Events</h2>
+          <h2 className="landingHeader">Upcoming Events</h2>
           {this.state.plans ? <ViewPlans plans={this.state.plans}/> : null}
           <p className="landingLink"><Link to="/plans">Add New Event</Link></p>
         </div>       

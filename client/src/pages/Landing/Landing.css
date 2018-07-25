@@ -2,7 +2,6 @@
     font-size: 18px;
     letter-spacing: 0;
     line-height: 1.1em;
-    font-weight: 900;
 }
 .col{
     margin-top: 40px;
@@ -20,8 +19,12 @@
     transform: scale(1.4);
 }
 
+.landingHeader{
+    text-transform: uppercase;
+}
+
 #landingP {
-    font-family: "Playfair Display", serif;
+    font-family: sans-serif;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     /* border-right: .10em solid #b4efff; The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */

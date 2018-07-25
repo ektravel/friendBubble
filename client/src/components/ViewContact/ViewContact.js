@@ -45,7 +45,7 @@ class ViewContact extends Component {
             <li className="list-group-item">
             <h3>{post.name}</h3>
             <p>Email: {post.email}</p>
-            <p>Frequency (per month) {post.frequency}</p>
+            <p>Frequency (per month): {post.frequency}</p>
             <p>Relationship: {post.relationship}</p>
             <p>Notes: {post.notes}</p>
             <button className="btn btn-sm" id="viewContactBtn" onClick={() => this.deleteContacts(post._id)}>Delete</button>
