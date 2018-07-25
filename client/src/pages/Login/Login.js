@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import axios from "axios";
 
 class Login extends Component {
 
   state = {
-    name: "",
-    email: "",
+    username: "",
+    password: "",
   }
 
   handleInputChange = event => {
@@ -24,12 +23,12 @@ class Login extends Component {
           <div className="card-body">
             <form>
               <div className="form-group">
-                <label htmlFor="name">Your Name</label>
-                <input name="name" className="form-control" onChange={this.handleInputChange} value={this.state.name} />
+                <label htmlFor="username">Username</label>
+                <input name="username" className="form-control" onChange={this.handleInputChange} value={this.state.username} />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Your Email</label>
-                <input name="email" className="form-control" onChange={this.handleInputChange} value={this.state.email} />
+                <label htmlFor="password">Passoword</label>
+                <input name="password" className="form-control" onChange={this.handleInputChange} value={this.state.password} />
               </div>
               <button type="submit" className="btn">Submit</button>
             </form>

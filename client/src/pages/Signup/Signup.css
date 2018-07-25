@@ -1,0 +1,19 @@
+
+#signupCardContainer{
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 1.1em;
+    font-weight: 900;
+    border-color: #b4efff;
+    margin-bottom: 30px;
+}
+#signupHeader{
+    font-size: 24px;
+    font-weight: bold;
+}
+button {
+    background-color: #04cbff;
+    color: white;
+}
+
