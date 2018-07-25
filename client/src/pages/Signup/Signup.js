@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./Signup.css";
 
 class Signup extends Component {
 
   state = {
-    name: "",
+    username: "",
     email: "",
+    password:""
   }
 
   handleInputChange = event => {
@@ -21,10 +21,14 @@ class Signup extends Component {
         <div className="card">
           <h4 className="card-header bg-transparent text-center" id="signupHeader">Create an account</h4>
           <div className="card-body">
-            <form>
+            <form action="/signup" method="post">
               <div className="form-group">
                 <label htmlFor="username">Username</label>
                 <input name="username" className="form-control" onChange={this.handleInputChange} value={this.state.username} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input name="email" className="form-control" onChange={this.handleInputChange} value={this.state.email} />
               </div>
               <div className="form-group">
                 <label htmlFor="password">Password</label>

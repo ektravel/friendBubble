@@ -3,7 +3,6 @@ const app = express.Router();
 const db = require ("../models");
 
 app.get("/contact", (req, res) => {
-    console.log("this should be hit");
     db.Contact.find({}).then(results => res.json(results));
 });
 
@@ -24,7 +23,6 @@ app.delete("/contact/:id", (req,res) => {
 
 
 app.get("/plans", (req, res) => {
-    console.log("this should be hit");
     db.Plans.find({}).then(results => res.json(results));
 });
 
@@ -48,5 +46,16 @@ app.delete("/plans/:id", (req,res) => {
     .then(dbPlans=> res.json(dbPlans));
 });
 
+
+// app.get("/user", (req, res) => {
+//     db.User.find({}).then(results => res.json(results));
+// });
+
+// app.post("/user", (req, res) => {
+//     console.log(req.body);
+//     db.User.create(req.body).then(dbUser => {
+//         res.json(dbUser);
+//     });
+// });
 
 module.exports = app;
