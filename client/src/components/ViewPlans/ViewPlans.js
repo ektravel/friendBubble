@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./ViewPlans.css"
+import "./ViewPlans.css";
+import moment from "moment";
 
 class ViewPlans extends Component {
 
@@ -52,7 +53,7 @@ class ViewPlans extends Component {
             <h3>{post.title}</h3>
             <p>Attendees: {post.attendees}</p>
             <p>Activity: {post.activity}</p>
-            <p>Date: {post.date}</p>
+            <p>Date: {moment(post.date).format('LL')}</p>
             <p>Notes: {post.notes}</p>
             <button className="btn btn-sm" id="deletePlansBtn" onClick={() => this.deletePlan(post._id)}>Delete</button>
             {/* <button className="btn btn-sm" id="editPlansBtn" onClick={() => this.editPlan(post._id)}>Edit</button> */}
