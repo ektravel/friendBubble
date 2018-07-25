@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 const path = require("path");
 const mongoose = require("mongoose");
 const app = express();
@@ -12,8 +13,11 @@ const User = require("./models/user.js");
 const PORT = process.env.PORT || 3001;
 
 //Define middleware
+app.use(session({ secret: "tempSecret" }));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Connect to Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/friendBubble");
@@ -25,7 +29,6 @@ app.use(express.static("client/build"));
 
 app.use("/api",APIroutes);
 
-app.use(passport.initialize());
 
 // =========================================================================
 // passport session setup ==================================================
@@ -52,9 +55,11 @@ passport.use(new LocalStrategy(
       User.findOne({ username: username }, function (err, user) {
         if (err) { return done(err); }
         if (!user) {
+          console.log('User not found: ' + user);
           return done(null, false, { message: 'Incorrect username.' });
         }
         if (!user.validPassword(password)) {
+            console.log('Password incorrect: ' + password);
           return done(null, false, { message: 'Incorrect password.' });
         }
         return done(null, user);
@@ -131,42 +136,23 @@ app.post("/signup", passport.authenticate("local-signup", {
     failureFlash: false
 }));
 
-app.post('/login', passport
-   .authenticate('local', {
-    successRedirect: 'api/landing',
-    failureRedirect: 'api/login',
+app.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
     failureFlash: false })
 );
 
+app.get('/logout', function(req, res) {
+    console.log('Logout hit');
+    req.logout();
+    res.redirect('/login');
+});
 
-// passport.use("local-signup", new LocalStrategy({
-//     passReqToCallback: true
-// },
-// function(req, email,password, done){
-//     process.nextTick(function(){
-//         User.findOne({ 'local.email' :  email }, function(err, user) {if (err)
-//             return done(err);
-//             if (user) {
-//                 return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
-//             } else {
-//               const newUser = new User();
-//               newUser.local.email    = email;
-//                 newUser.local.password = newUser.generateHash(password);
-//                 newUser.save(function(err) {
-//                     if (err)
-//                         throw err;
-//                     return done(null, newUser);
-//                 });
-
-
-//     });
-// }));
-
-
-
-// app.use("*", function(req, res){
-//     res.sendFile(path.join(__dirname, "client/build/index.html"));
-// });
+app.get('/logout2', function(req, res) {
+    console.log('Logout hit');
+    req.logout();
+    res.redirect('/login');
+});
 
 //Start the API server
 app.listen(PORT, function(){

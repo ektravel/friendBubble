@@ -30,6 +30,9 @@ const App = () => (
           <Route exact path="/addnew" component={AddNew}/>
           <Route exact path="/userhomepage" component={UserHomePage}/>
           <Route exact path="/signup" component={Signup}/>
+          
+          {/* TODO Fix logout  */}
+          <Route exact path="/logout" component={Landing} />
           <Route component={NotFound} />
         </Switch>
       </div>

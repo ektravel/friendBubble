@@ -21,7 +21,7 @@ class Login extends Component {
         <div className="card">
           <h4 className="card-header bg-transparent text-center" id="loginHeader">Login to Your Account</h4>
           <div className="card-body">
-            <form>
+            <form action="/login" method="post">
               <div className="form-group">
                 <label htmlFor="username">Username</label>
                 <input name="username" className="form-control" onChange={this.handleInputChange} value={this.state.username} />
