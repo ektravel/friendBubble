@@ -20,7 +20,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //Connect to Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/friendBubble");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/friendBubble", { useNewUrlParser: true });
 
 // Serve up static assets 
 if (process.env.NODE_ENV === "production") {
@@ -131,8 +131,8 @@ function(req, username, password, done) {
 // });
 
 app.post("/signup", passport.authenticate("local-signup", {
-    successRedirect: "api/landing",
-    failureRedirect: "api/signup",
+    successRedirect: "/",
+    failureRedirect: "/signup",
     failureFlash: false
 }));
 
